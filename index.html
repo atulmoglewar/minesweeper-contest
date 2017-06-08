@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Minesweeper - version 1</title>
+    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script type="text/babel" src="./src/js/models/gameTile.js"></script>
+    <script type="text/babel" src="./src/js/models/gameEngine.js"></script>
+    <script type="text/babel" src="./src/js/views/flag.js"></script>
+    <script type="text/babel" src="./src/js/views/mine.js"></script>
+    <script type="text/babel" src="./src/js/views/tile.js"></script>
+    <script type="text/babel" src="./src/js/views/grid.js"></script>
+    <script type="text/babel" src="./src/js/views/mineSweeper.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./res/css/minesweeper.css"></style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      let mineSweeper = <MineSweeper rows="6" cols="6" nMines="6"/>
+      ReactDOM.render(mineSweeper, document.getElementById('root'))
+    </script>
+    
+  </body>
+</html>

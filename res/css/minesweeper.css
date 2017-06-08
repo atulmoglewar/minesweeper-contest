@@ -1,0 +1,22 @@
+.tile {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  user-select: none;
+}
+.closedTile {
+  background-color: #fbcc67;
+}
+.openedTile {
+  background-color: #eceae9
+}
+.empty {
+  background-color: #eceae9 
+}
+.flag {
+  width: 25px;
+  height: 25px; 
+  margin-top: 5px;
+}
