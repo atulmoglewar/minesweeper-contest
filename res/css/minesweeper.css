@@ -20,3 +20,6 @@
   height: 25px; 
   margin-top: 5px;
 }
+#root table {
+  border-spacing: 0px;
+}
