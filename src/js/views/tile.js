@@ -14,18 +14,6 @@ class Tile extends React.Component {
     } else {
       this.props.handleLeftClick(this.props.row, this.props.col);
     }
-    // let isRightClick = button => button === 2;
-    // let isTileClosed = () => !this.state.opened;
-    // if (isTileClosed()) {
-    //   if (isRightClick(event.button)) {
-    //     console.log()
-    //     this.toggleFlag();    
-    //   } else if (!this.state.flagged) {
-    //     this.setState({
-    //       opened: true
-    //     });
-    //   } 
-    // }
   }
 
   toggleFlag() {

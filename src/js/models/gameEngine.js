@@ -4,10 +4,14 @@ class GameEngine {
     this.cols = cols;
     this.nMines = nMines;
     this.board = this.initBoard();
-    this.placeMines();
-    this.generateHints();
   }
 
+  startGameFrom(row, col) {
+    let startTile = this.board[row][col];
+    this.placeMines(startTile);
+    this.generateHints();
+    this.revealSurrounding(row, col);
+  }
   initBoard(rows, cols) {
     let board = [];
     for (let i = 0; i < this.rows; i++) {
@@ -20,7 +24,7 @@ class GameEngine {
     return board;
   }
 
-  placeMines() {
+  placeMines(startTile) {
     let getRandomInt = (min, max) => 
                        Math.floor(Math.random() * (max - min + 1)) + min;
     let getRandomRow = () => getRandomInt(0, this.rows - 1);
@@ -31,7 +35,8 @@ class GameEngine {
       let rRow = getRandomRow();
       let rCol = getRandomCol();
       let tile = this.board[rRow][rCol];
-      if (tile.isEmpty()) {
+      if (tile.isEmpty() && tile.row !== startTile.row && 
+        tile.col !== startTile.com) {
         tile.value = -1;
         totalPlaced++;
       }
@@ -109,16 +114,6 @@ class GameEngine {
       for (let count = 0; count < emptyTiles.length; count++) {
         reveal(emptyTiles[count]);
       }  
-    }
-  }
-
-  print() {
-    for (let i = 0; i < this.rows; i++) {
-      let r = "";
-      for (let j = 0; j < this.cols; j++) {
-        r += this.board[i][j].value;
-      }  
-      console.log(r);
     }
   }
 }
