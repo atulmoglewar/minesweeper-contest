@@ -5,6 +5,7 @@ class GameTile {
     this.col = col;
     this.opened = false;
     this.flagged = false;
+    this.wronglyPlacedFlag = false;
   }
 
   isEmpty() {

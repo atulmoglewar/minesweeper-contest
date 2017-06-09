@@ -19,6 +19,7 @@ class MineSweeper extends React.Component {
       if (!tile.flagged && !tile.opened) {
         if (gameEngine.containsMine(row, col)) {
           gameEngine.openAllTiles();
+          gameEngine.revealWronglyPlacedFlags();
         } else {
           gameEngine.revealSurrounding(row, col);
         }

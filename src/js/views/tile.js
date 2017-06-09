@@ -29,6 +29,13 @@ class Tile extends React.Component {
     )
   }
 
+  renderWronglyFlaggedTile() {
+    return (
+      <div className="tile closedTile" onClick={this.handleClick} onContextMenu={this.handleClick}>
+        <CrossedFlag />
+      </div>
+    )  
+  }
   renderMineTile() {
     return (
       <div className="tile closedTile" onClick={this.handleClick} onContextMenu={this.handleClick}>
@@ -60,7 +67,9 @@ class Tile extends React.Component {
   }
 
   render() {
-    if (this.props.flagged) {
+    if (this.props.wronglyPlacedFlag) {
+      return this.renderWronglyFlaggedTile();
+    } else if (this.props.flagged) {
       return this.renderFlaggedTile();
     } else {
       if (this.props.opened) {

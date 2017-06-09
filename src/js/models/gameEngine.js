@@ -116,4 +116,15 @@ class GameEngine {
       }  
     }
   }
+
+  revealWronglyPlacedFlags() {
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.cols; j++) {
+        let tile = this.board[i][j];
+        if (tile.flagged && !tile.containsMine()) {
+          tile.wronglyPlacedFlag = true;
+        }
+      }
+    }  
+  }  
 }
