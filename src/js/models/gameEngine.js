@@ -1,4 +1,6 @@
-class GameEngine {
+import GameTile from './gameTile.js';
+
+export default class GameEngine {
   constructor(rows, cols, nMines) {
     this.rows = rows;
     this.cols = cols;
@@ -62,7 +64,9 @@ class GameEngine {
     return nMines; 
   }
   
-  containsMine = (r,c) => this.board[r][c].value === -1;
+  containsMine(r,c) {
+   return this.board[r][c].value === -1;
+  }
 
   generateHints() {
     for (let i = 0; i < this.rows; i++) {

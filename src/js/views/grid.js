@@ -1,4 +1,7 @@
-class Grid extends React.Component {
+import React from 'react';
+import Tile from './tile.js';
+
+export default class Grid extends React.Component {
   constructor(props) {
     super(props);
   }

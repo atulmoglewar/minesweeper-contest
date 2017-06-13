@@ -1,4 +1,8 @@
-class MineSweeper extends React.Component {
+import React from 'react';
+import GameEngine from '../models/gameEngine.js';
+import Grid from './grid.js';
+
+export default class MineSweeper extends React.Component {
   constructor(props) {
     super(props);
     this.handleRightClick = this.handleRightClick.bind(this);

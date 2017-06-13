@@ -1,4 +1,9 @@
-class Tile extends React.Component {
+import React from 'react';
+import Flag from './flag.js';
+import CrossedFlag from './crossedFlag.js';
+import Mine from './mine.js';
+
+export default class Tile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

@@ -1,4 +1,4 @@
-class GameTile {
+export default class GameTile {
   constructor(value, row, col) {
     this.value = value;
     this.row = row;
