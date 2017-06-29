@@ -2,30 +2,21 @@ import React from 'react';
 import Flag from './flag.js';
 import CrossedFlag from './crossedFlag.js';
 import Mine from './mine.js';
-
+import * as MinesweeperActions from '../data/actions/minesweeperActions.js';
 export default class Tile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      opened: false,
-      flagged: false
-    }
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick(event) {
     event.nativeEvent.preventDefault();
     if (event.button === 2) {
-      this.props.handleRightClick(this.props.row, this.props.col);
+      MinesweeperActions.flagTile(this.props.row, this.props.col);
     } else {
-      this.props.handleLeftClick(this.props.row, this.props.col);
+      MinesweeperActions.openTile(this.props.row, this.props.col);
     }
   }
-
-  toggleFlag() {
-    this.setState({
-      flagged: !this.state.flagged
-    });
-  }
+  
   renderFlaggedTile() {
     return (
       <div className="tile closedTile" onClick={this.handleClick} onContextMenu={this.handleClick}>
