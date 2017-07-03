@@ -1,10 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-export class LeaderBoard extends React.Component {
+import BG from './bg.js'
+export default class LeaderBoard extends React.Component {
   render() {
     return (
       <div>
-        <img src="./res/img/leaderboard.png" className="leaderboard"/>
+        <BG transparent="true" />
+        <div>This is LeaderBoard page.</div>
       </div>
     )
   }
