@@ -2,11 +2,14 @@ import GameEngine from '../../models/gameEngine.js';
 import dispatcher from "../dispatcher";
 import {EventEmitter} from "events";
 
-class GameStore extends EventEmitter{
+class GameStore extends EventEmitter {
+  
   constructor(grid, dispatcher) {
     super();
     this.gameStarted = false;
+    this.gameTime = 0;
     this.gameEngine = new GameEngine(grid.row, grid.col, grid.nMines);
+    this.incrementGameTime = this.incrementGameTime.bind(this);
   }
 
   handleAction(action) {
@@ -21,20 +24,25 @@ class GameStore extends EventEmitter{
         this.openTile(action.tile.row, action.tile.col);
         this.emit("change");
       break;
+      case 'RESTART_GAME':
+        this.gameEngine.restart(); 
+        this.gameStarted = false;
+        this.gameTime = 0;
+        clearInterval(this.intervalID);      
+        this.emit("change");
+        break;
     }
   }
 
   flagTile(row, col) {
-    let tile = this.gameEngine.board[row][col];
-    if (!tile.opened) {
-      tile.flagged = !tile.flagged;
-    }
+    this.startGameIfNotStarted();
+    this.gameEngine.flagTile(row, col);
   }
 
   openTile(row, col) {
     let tile = this.gameEngine.board[row][col];
     if (!this.gameStarted) {
-      this.gameEngine.startGameFrom(row, col);
+      this.startGameIfNotStarted(row, col);
       this.gameStarted = true;  
     } else {
       if (!tile.flagged && !tile.opened) {
@@ -47,8 +55,38 @@ class GameStore extends EventEmitter{
       }  
     }
   }
+
+  startGameIfNotStarted(row, col) {
+    if (!this.gameStarted) {
+      if (row !== undefined && col !== undefined) {
+        this.gameEngine.startGameFrom(row, col);
+      } else {
+        this.gameEngine.startGame();
+      }
+      this.gameStarted = true;
+      this.startTimer();
+    }
+  }
+
+  incrementGameTime() {
+    this.gameTime += 1;
+    this.emit("change");
+  }
+
+  startTimer() {
+     this.intervalID = setInterval(this.incrementGameTime, 1000);
+  }
+
   getBoard() {
     return this.gameEngine.board;
+  }
+
+  getNMinesRemaining() {
+    return this.gameEngine.nMinesRemainning;
+  }
+
+  getGameTime() {
+    return this.gameTime;
   }
 }
 

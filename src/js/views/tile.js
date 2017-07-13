@@ -56,7 +56,7 @@ export default class Tile extends React.Component {
   }
   renderNumberedTile() {
    return (
-      <div className="tile empty" onClick={this.handleClick} onContextMenu={this.handleClick}>
+      <div className="tile numberedTile" onClick={this.handleClick} onContextMenu={this.handleClick}>
         {this.props.value}   
       </div>
     ) 

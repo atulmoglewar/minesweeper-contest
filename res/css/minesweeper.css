@@ -1,6 +1,6 @@
 .tile {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   text-align: center;
   display: table-cell;
   vertical-align: middle;
@@ -14,6 +14,10 @@
 }
 .empty {
   background-color: #eceae9 
+}
+.numberedTile {
+  background-color: #eceae9;
+  font-size: 17px;  
 }
 .flag {
   width: 18px;
@@ -104,4 +108,47 @@
   color: #333 !important;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
   -webkit-font-smoothing: antialiased;
+}
+
+table, th, td {
+    border: 2px solid white;
+    border-collapse: collapse;
+}
+
+.gameScreen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  position: absolute;
+}
+
+.gameControls {
+  display: flex;
+  flex-direction: column;
+  background-color: tomato;
+  border: inset red;
+  padding: 10%;
+}
+.numbers {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.refresh {
+  width: 20px;
+  height: 20px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-style: inset;
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: #fbcc67
 }

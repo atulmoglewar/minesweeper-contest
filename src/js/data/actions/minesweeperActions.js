@@ -13,3 +13,9 @@ export function openTile(row, col) {
     tile: {row: row, col: col}
   });
 }
+
+export function restartGame() {
+  dispatcher.dispatch({
+    type: 'RESTART_GAME'
+  });  
+}

@@ -5,6 +5,7 @@ export default class GameEngine {
     this.rows = rows;
     this.cols = cols;
     this.nMines = nMines;
+    this.nMinesRemainning = nMines;
     this.board = this.initBoard();
   }
 
@@ -14,6 +15,12 @@ export default class GameEngine {
     this.generateHints();
     this.revealSurrounding(row, col);
   }
+
+  startGame() {
+    this.placeMines();
+    this.generateHints();  
+  }
+
   initBoard(rows, cols) {
     let board = [];
     for (let i = 0; i < this.rows; i++) {
@@ -37,10 +44,13 @@ export default class GameEngine {
       let rRow = getRandomRow();
       let rCol = getRandomCol();
       let tile = this.board[rRow][rCol];
-      if (tile.isEmpty() && tile.row !== startTile.row && 
-        tile.col !== startTile.com) {
-        tile.value = -1;
-        totalPlaced++;
+      if (tile.isEmpty()) {
+        if (!startTile || (startTile && tile.row !== startTile.row && 
+        tile.col !== startTile.com)) {
+          tile.value = -1;
+          totalPlaced++;  
+        }
+        
       }
     }
   }
@@ -78,6 +88,7 @@ export default class GameEngine {
       }
     }
   }
+  
   openAllTiles() {
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.cols; j++) {
@@ -130,5 +141,25 @@ export default class GameEngine {
         }
       }
     }  
+  }
+
+  restart() {
+    this.board = this.initBoard(); 
+    this.nMinesRemainning = this.nMines;   
   }  
+
+  flagTile(row, col) {
+    let tile = this.board[row][col];
+    if (!tile.opened) {
+      if (!tile.flagged) {
+        if (this.nMinesRemainning > 0) {
+          tile.flagged = true;
+          this.nMinesRemainning--;  
+        }
+      } else {
+        tile.flagged = false;
+        this.nMinesRemainning++;
+      }
+    }
+  }
 }

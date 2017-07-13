@@ -6,7 +6,7 @@ export default class Grid extends React.Component {
     super(props);
   }
 
-  render() {
+  createBoardTiles() {
     let trs = [];
     for (let i = 0; i < this.props.rows; i++) {
       let tds = [];
@@ -27,6 +27,11 @@ export default class Grid extends React.Component {
       }
       trs.push(<tr>{tds}</tr>);
     }
+    return trs;  
+  }
+
+  render() {
+    let trs = this.createBoardTiles();
     return (
       <table>
         <tbody>
