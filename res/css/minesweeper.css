@@ -1,23 +1,32 @@
 .tile {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   text-align: center;
   display: table-cell;
   vertical-align: middle;
   user-select: none;
+  background-color: #e5e2e2;
+  border: 1px outset #FFFFFF;
+  border-width: 2px;
 }
 .closedTile {
-  background-color: #fbcc67;
+  background-color: #d3d3d3;
 }
 .openedTile {
-  background-color: #eceae9
+  border-width: 1px;
+  background-color: #e3e3e3;
+  border-style: inset;
 }
 .empty {
-  background-color: #eceae9 
+  border-width: 1px;
+  background-color: #e3e3e3;
+  border-style: inset;
 }
 .numberedTile {
-  background-color: #eceae9;
   font-size: 17px;  
+  border-width: 1px;
+  background-color: #e3e3e3;
+  border-style: inset;
 }
 .flag {
   width: 18px;
@@ -151,4 +160,8 @@ table, th, td {
   margin-bottom: 10px;
   padding: 5px;
   background-color: #fbcc67
+}
+
+.msrow {
+  display: flex;
 }

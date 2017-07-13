@@ -13,7 +13,7 @@ export default class Grid extends React.Component {
       for (let j = 0; j < this.props.cols; j++) {
         let gameTile = this.props.board[i][j];
         tds.push(
-          <td>
+          <div>
             <Tile value = {gameTile.value}
                   handleRightClick = {this.props.handleRightClick}
                   handleLeftClick = {this.props.handleLeftClick}
@@ -23,9 +23,9 @@ export default class Grid extends React.Component {
                   flagged = {gameTile.flagged}
                   wronglyPlacedFlag = {gameTile.wronglyPlacedFlag} 
             />
-          </td>)
+          </div>)
       }
-      trs.push(<tr>{tds}</tr>);
+      trs.push(<div className="msrow">{tds}</div>);
     }
     return trs;  
   }
@@ -33,11 +33,9 @@ export default class Grid extends React.Component {
   render() {
     let trs = this.createBoardTiles();
     return (
-      <table>
-        <tbody>
-          {trs}
-        </tbody>
-      </table>
+      <div>
+        {trs}
+      </div>
     )
   }
 }
