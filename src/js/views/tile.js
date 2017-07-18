@@ -3,6 +3,7 @@ import Flag from './flag.js';
 import CrossedFlag from './crossedFlag.js';
 import Mine from './mine.js';
 import * as MinesweeperActions from '../data/actions/minesweeperActions.js';
+
 export default class Tile extends React.Component {
   constructor(props) {
     super(props);

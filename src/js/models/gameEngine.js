@@ -7,6 +7,7 @@ export default class GameEngine {
     this.nMines = nMines;
     this.nMinesRemainning = nMines;
     this.board = this.initBoard();
+    this.gameStatus = "NOT_STARTED";
   }
 
   startGameFrom(row, col) {
@@ -146,9 +147,11 @@ export default class GameEngine {
   restart() {
     this.board = this.initBoard(); 
     this.nMinesRemainning = this.nMines;   
+    this.gameStatus = "NOT_STARTED";
   }  
 
   flagTile(row, col) {
+    this.startGameIfNotStarted();
     let tile = this.board[row][col];
     if (!tile.opened) {
       if (!tile.flagged) {
@@ -160,6 +163,33 @@ export default class GameEngine {
         tile.flagged = false;
         this.nMinesRemainning++;
       }
+    }
+  }
+
+  openTile(row, col) {
+    if (this.gameStatus === "NOT_STARTED") {
+      this.startGameIfNotStarted(row, col);
+    } else {
+      let tile = this.board[row][col];
+      if (!tile.flagged && !tile.opened) {
+        if (this.containsMine(row, col)) {
+          this.openAllTiles();
+          this.revealWronglyPlacedFlags();
+        } else {
+          this.revealSurrounding(row, col);
+        }
+      }  
+    }
+  }
+
+  startGameIfNotStarted(row, col) {
+    if (this.gameStatus === "NOT_STARTED") {
+      if (row !== undefined && col !== undefined) {
+        this.startGameFrom(row, col);
+      } else {
+        this.startGame();
+      }
+      this.gameStatus = "PLAYING";
     }
   }
 }

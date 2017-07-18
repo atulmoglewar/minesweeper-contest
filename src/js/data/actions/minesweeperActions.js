@@ -19,3 +19,10 @@ export function restartGame() {
     type: 'RESTART_GAME'
   });  
 }
+
+export function levelChange(level) {
+  dispatcher.dispatch({
+    type: 'LEVEL_CHANGE',
+    level: level
+  })
+}

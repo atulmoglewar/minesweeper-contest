@@ -159,9 +159,14 @@ table, th, td {
   border-style: inset;
   margin-bottom: 10px;
   padding: 5px;
-  background-color: #fbcc67
+  background-color: #e5e2e2
 }
 
 .msrow {
   display: flex;
+}
+
+.level {
+  align-self: flex-start;
+  margin-left: 10px;
 }
