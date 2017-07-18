@@ -18,6 +18,12 @@ export default class Timer extends React.Component {
 
   render() {
     let formattedTime = this.getformattedTime(this.props.time);
-    return <NumberDisplay numbers={formattedTime} />
+
+    return (
+      <div className="timer">
+        <NumberDisplay numbers={formattedTime} />
+      </div>
+    )
+
   }  
 }

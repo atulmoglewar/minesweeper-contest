@@ -13,9 +13,7 @@ export default class Practice extends React.Component {
     return (
       <div>
         <BG transparent="true"/>
-        <GameScreen>
-          <MineSweeper rows ="9" cols="9" />
-        </GameScreen>
+        <GameScreen />
       </div>
     )
   }

@@ -136,10 +136,10 @@ table, th, td {
 
 .gameControls {
   display: flex;
-  flex-direction: column;
-  background-color: tomato;
-  border: inset red;
-  padding: 10%;
+  flex-direction: row;
+  background-color: #808080;
+  border: inset black;
+  padding: 1%;
 }
 .numbers {
   font-size: 20px;
@@ -148,18 +148,20 @@ table, th, td {
 }
 
 .refresh {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 }
 
 .toolbar {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  flex-direction: column;
   border-style: inset;
   margin-bottom: 10px;
-  padding: 5px;
+  padding: 15px;
+  margin: 10px;
   background-color: #e5e2e2
+
 }
 
 .msrow {
@@ -168,5 +170,41 @@ table, th, td {
 
 .level {
   align-self: flex-start;
-  margin-left: 10px;
+  font-size: 30px;
+  border-radius: 5px;
+  background-color: #808080;
+  border: 2px solid black;
+  text-align-last:center;
+}
+
+.timer {
+  background-color: #808080;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid black;
+  text-align: center;
+  user-select: none;
+}
+
+.remainingMines {
+  display: flex;
+  background-color: #808080;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid black;
+  justify-content: center;
+  user-select: none;
+}
+
+.remainingMines img {
+  width: 25px;
+  height: 25px;
+  transform: scaleX(-1);
+}
+
+.restart {
+  font-size: 25px;
+  background-color: #808080;
+  border-radius: 5px;
+  border: 2px solid black;
 }
