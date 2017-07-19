@@ -1,13 +1,9 @@
 .tile {
   width: 35px;
-  height: 35px;/*
-  text-align: center;
-  display: table-cell;*/
+  height: 35px;
   vertical-align: middle;
   user-select: none;
-  background-color: #e5e2e2;
-  border: 1px outset #FFFFFF;
-  border-width: 2px;
+  border: 2px outset #FFFFFF;
   display: flex;
   justify-content: center;
   align-items: center;

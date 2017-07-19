@@ -6,8 +6,8 @@ export var Levels = {
   },
 
   intermediate: {
-    row: 16,
-    col: 16,
+    row: 15,
+    col: 15,
     nMines: 40
   },
 

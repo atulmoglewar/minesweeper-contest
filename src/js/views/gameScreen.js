@@ -9,9 +9,7 @@ export default class GameScreen extends React.Component {
     return (
       <div className="gameScreen">
         <div className="gameControls">
-          <div style={{display:"flex", flexDirection: "column"}}>
-            <MineSweeper />
-          </div>
+          <MineSweeper />
           <Toolbar />
         </div>
       </div>
