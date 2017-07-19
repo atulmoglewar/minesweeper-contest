@@ -1,13 +1,16 @@
 .tile {
   width: 35px;
-  height: 35px;
+  height: 35px;/*
   text-align: center;
-  display: table-cell;
+  display: table-cell;*/
   vertical-align: middle;
   user-select: none;
   background-color: #e5e2e2;
   border: 1px outset #FFFFFF;
   border-width: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .closedTile {
   background-color: #d3d3d3;
@@ -31,7 +34,6 @@
 .flag {
   width: 18px;
   height: 18px; 
-  margin-top: 3px;
 }
 #root table {
   border-spacing: 0px;
