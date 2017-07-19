@@ -8,7 +8,7 @@ export default class BG extends React.Component {
   
   render() {
     if (this.props.transparent === "true") {
-      return <img style={{opacity: 0.1 }} className="bg" src="../../../res/img/bg.jpg" />  
+      return <img style={{opacity: 0.2 }} className="bg" src="../../../res/img/bg.jpg" />  
     } else {
       return <img className="bg" src="../../../res/img/bg.jpg" />  
     }
