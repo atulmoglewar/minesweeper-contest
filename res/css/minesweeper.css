@@ -246,3 +246,17 @@ table, th, td {
   border-radius: 5px;
   border: 2px solid black;
 }
+
+.gameStatus {
+  border-style: inset;
+  text-align: center;
+  padding: 5px;
+  font-weight: bold;
+}
+.gameWon {
+  color: #830000;
+}
+
+.gameLost {
+  color: #830000;
+}

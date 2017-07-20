@@ -8,6 +8,7 @@ export default class GameEngine {
     this.nMinesRemainning = nMines;
     this.board = this.initBoard();
     this.gameStatus = "NOT_STARTED";
+    this.tilesOpenedSoFar = 0;
   }
 
   startGameFrom(row, col) {
@@ -95,15 +96,18 @@ export default class GameEngine {
       for (let j = 0; j < this.cols; j++) {
         let tile = this.board[i][j];
         if (!tile.flagged) {
-          tile.opened = true;
+          this.setTileOpen(tile);
         }
       }
     }  
   }
-
+  setTileOpen(tile) {
+    tile.opened = true;
+    this.tilesOpenedSoFar ++;
+  }
   revealSurrounding(row, col) {
     let tile = this.board[row][col];
-    tile.opened = true;
+    this.setTileOpen(tile);
     if (tile.isEmpty()) {
       let rowInRange = (r) => r >= 0 && r < this.rows;
       let colInRange = (c) => c >= 0 && c < this.cols;
@@ -117,7 +121,7 @@ export default class GameEngine {
             if (indeInRange(i, j)) {
               let neigbhour = this.board[i][j];
               if (!neigbhour.flagged && !neigbhour.containsMine() && !neigbhour.opened) {
-                neigbhour.opened = true;
+                this.setTileOpen(neigbhour);
                 if (neigbhour.isEmpty()) {
                   emptyTiles.push(neigbhour);
                 }                
@@ -148,6 +152,7 @@ export default class GameEngine {
     this.board = this.initBoard(); 
     this.nMinesRemainning = this.nMines;   
     this.gameStatus = "NOT_STARTED";
+    this.tilesOpenedSoFar = 0;
   }  
 
   flagTile(row, col) {
@@ -173,10 +178,14 @@ export default class GameEngine {
       let tile = this.board[row][col];
       if (!tile.flagged && !tile.opened) {
         if (this.containsMine(row, col)) {
+          this.gameStatus = "LOST";
           this.openAllTiles();
           this.revealWronglyPlacedFlags();
         } else {
           this.revealSurrounding(row, col);
+          if (this.hasUserWon()) {
+            this.gameStatus = "WON";  
+          }
         }
       }  
     }
@@ -191,5 +200,12 @@ export default class GameEngine {
       }
       this.gameStatus = "PLAYING";
     }
+  }
+  hasUserWon() {
+    let nTiles = this.rows * this.cols;
+    return (nTiles - this.tilesOpenedSoFar === this.nMines) 
+  }
+  getGameStatus() {
+    return this.gameStatus;
   }
 }

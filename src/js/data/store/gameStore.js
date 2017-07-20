@@ -20,6 +20,10 @@ class GameStore extends EventEmitter {
       break;
       case 'OPEN_TILE':
         this.openTile(action.tile.row, action.tile.col);
+        let gameStatus = this.getGameStatus();
+        if (gameStatus === "WON" || gameStatus === "LOST") {
+          this.stopTimer();
+        }
         this.emit("change");
       break;
       case 'RESTART_GAME':
@@ -40,10 +44,13 @@ class GameStore extends EventEmitter {
     this.gameEngine.restart(); 
     this.gameStarted = false;
     this.gameTime = 0;
+    this.stopTimer();
+  }
+
+  stopTimer() {
     clearInterval(this.intervalID);
     this.intervalID = undefined;
   }
-
   flagTile(row, col) {
     this.gameEngine.flagTile(row, col);
     this.startTimerIfNotAlready();
@@ -83,7 +90,10 @@ class GameStore extends EventEmitter {
   }
   getGameLevel() {
     return this.gameLevel;
-  } 
+  }
+  getGameStatus() {
+    return this.gameEngine.getGameStatus();
+  }
 }
 
 const gameStore = new GameStore();

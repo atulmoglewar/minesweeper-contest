@@ -1,6 +1,7 @@
 import React from 'react';
 import GameEngine from '../models/gameEngine.js';
 import Grid from './grid.js';
+import GameStatus from './gameStatus';
 import GameStore from '../data/store/gameStore.js'
 
 export default class MineSweeper extends React.Component {
@@ -19,8 +20,7 @@ export default class MineSweeper extends React.Component {
     });
   }
 
-  
-  render() {
+  renderGrid() {
     return (
       <Grid 
         rows={GameStore.getRows()}
@@ -31,5 +31,25 @@ export default class MineSweeper extends React.Component {
         handleRightClick={this.handleRightClick}
       />
     )
+  }
+  render() {
+    let gameStatus = GameStore.getGameStatus();
+    let message = "";
+    if (gameStatus === 'WON') {
+      message = "Congratulations!!! You Won."
+    } else if (gameStatus === 'LOST') {
+      message = "Sorry! You Lost. Try Again."
+    }
+    if (message) {
+      return (
+        <div>
+          <GameStatus status = {gameStatus} message={message}/>
+          {this.renderGrid()}
+        </div>
+      )
+    } else {
+      return this.renderGrid();  
+    }
+    
   }
 }
