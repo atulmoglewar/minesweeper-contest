@@ -27,8 +27,9 @@ class GameStore extends EventEmitter {
         this.emit("change");
         break;
       case 'LEVEL_CHANGE':
-        this.gameEngine = new GameEngine(action.level.row, 
-          action.level.col, action.level.nMines);
+        this.gameLevel = action.name;
+        this.gameEngine = new GameEngine(action.data.row, 
+          action.data.col, action.data.nMines);
         this.restartGame();
         this.emit("change");
         break;
@@ -80,6 +81,9 @@ class GameStore extends EventEmitter {
   getGameTime() {
     return this.gameTime;
   }
+  getGameLevel() {
+    return this.gameLevel;
+  } 
 }
 
 const gameStore = new GameStore();

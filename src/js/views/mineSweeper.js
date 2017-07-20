@@ -26,6 +26,7 @@ export default class MineSweeper extends React.Component {
         rows={GameStore.getRows()}
         cols={GameStore.getCols()} 
         board={GameStore.getBoard()}
+        gameLevel={GameStore.getGameLevel()}
         handleLeftClick={this.handleLeftClick}
         handleRightClick={this.handleRightClick}
       />

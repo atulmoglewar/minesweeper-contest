@@ -20,9 +20,10 @@ export function restartGame() {
   });  
 }
 
-export function levelChange(level) {
+export function levelChange(name, data) {
   dispatcher.dispatch({
     type: 'LEVEL_CHANGE',
-    level: level
+    name: name,
+    data: data
   })
 }

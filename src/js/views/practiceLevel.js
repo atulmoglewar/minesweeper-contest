@@ -9,8 +9,8 @@ export default class PracticeLevel extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange (event) {
-    console.log(event.target.value);
-    MinesweeperActions.levelChange(Config.Levels[event.target.value]);
+    let gameLevel = event.target.value
+    MinesweeperActions.levelChange(gameLevel, Config.Levels[gameLevel]);
   }
   render() {
     return (

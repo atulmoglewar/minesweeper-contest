@@ -33,7 +33,7 @@ export default class Grid extends React.Component {
   render() {
     let trs = this.createBoardTiles();
     return (
-      <div>
+      <div className={this.props.gameLevel}>
         {trs}
       </div>
     )

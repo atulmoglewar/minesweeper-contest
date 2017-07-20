@@ -8,14 +8,13 @@ import Header from './header'
 
 export default class Practice extends React.Component {
   componentWillMount() {
-    MinesweeperActions.levelChange(Config.Levels.beginner);
+    MinesweeperActions.levelChange("beginner", Config.Levels.beginner);
   }
   render() {
     return (
       <div>
       <BG transparent="true"/>
         <Header />
-        
         <GameScreen />
       </div>
     )
