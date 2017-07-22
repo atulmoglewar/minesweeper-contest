@@ -15,16 +15,21 @@ class GameStore extends EventEmitter {
   handleAction(action) {
     switch(action.type) {
       case 'FLAG_TILE':
-        this.flagTile(action.tile.row, action.tile.col);
-        this.emit("change");
+        if(!this.gameEnded()) {
+          this.flagTile(action.tile.row, action.tile.col);
+          this.emit("change");
+        }
       break;
       case 'OPEN_TILE':
-        this.openTile(action.tile.row, action.tile.col);
-        let gameStatus = this.getGameStatus();
-        if (gameStatus === "WON" || gameStatus === "LOST") {
-          this.stopTimer();
+        if(!this.gameEnded()) {
+          this.openTile(action.tile.row, action.tile.col);
+          let gameStatus = this.getGameStatus();
+          if (gameStatus === "WON" || gameStatus === "LOST") {
+            this.stopTimer();
+          }
+          this.emit("change");  
         }
-        this.emit("change");
+        
       break;
       case 'RESTART_GAME':
         this.restartGame();              
@@ -40,6 +45,10 @@ class GameStore extends EventEmitter {
     }
   }
 
+  gameEnded() {
+    let gameStatus = this.getGameStatus();
+    return (gameStatus === "WON" || gameStatus === "LOST");
+  }
   restartGame() {
     this.gameEngine.restart(); 
     this.gameStarted = false;
