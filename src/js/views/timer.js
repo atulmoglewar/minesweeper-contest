@@ -20,8 +20,9 @@ export default class Timer extends React.Component {
     let formattedTime = this.getformattedTime(this.props.time);
 
     return (
-      <div className="timer">
-        <NumberDisplay numbers={formattedTime} />
+      <div className="timer unselectable">
+        <img src="../../../res/img/clock.png" className="clock"/>
+        <div>{formattedTime}</div>
       </div>
     )
 

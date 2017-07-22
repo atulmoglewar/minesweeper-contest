@@ -5,10 +5,12 @@ export default class RemainingMines extends React.Component {
     super(props);
   }
   render() {
+    let nMines = this.props.nMines < 10 ? "0" + this.props.nMines :
+                 this.props.nMines;
     return (
-      <div className="remainingMines">
-        <img src='./res/img/flag.png'/>
-        <NumberDisplay numbers={this.props.nMines} />
+      <div className="remainingMines unselectable">
+        <div> {nMines} </div>
+        <img src='../../../res/img/black-flag.png'/>
       </div>
     )
   }

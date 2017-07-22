@@ -30,7 +30,7 @@ export default class Toolbar extends React.Component {
         <RemainingMines nMines={this.state.nRemainingMines} />
         <RestartGame />
         <Timer time={this.state.gameTime} />
-        <PracticeLevel style={{marginBottom:"20px"}}/>
+        <PracticeLevel/>
       </div>
     )
   }

@@ -39,7 +39,7 @@ export default class GameEngine {
     let getRandomInt = (min, max) => 
                        Math.floor(Math.random() * (max - min + 1)) + min;
     let getRandomRow = () => getRandomInt(0, this.rows - 1);
-    let getRandomCol = () => getRandomInt(0, this.rows - 1);
+    let getRandomCol = () => getRandomInt(0, this.cols - 1);
 
     let totalPlaced = 0;
     while (totalPlaced < this.nMines) {

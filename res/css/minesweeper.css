@@ -1,10 +1,13 @@
 .tile {
   vertical-align: middle;
-  user-select: none;
   border: 2px outset #FFFFFF;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.board {
+  border-top: 1px solid white;
+  border-left: 1px solid white;
 }
 
 .beginner .tile {
@@ -13,18 +16,18 @@
 }
 
 .intermediate .tile {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
 }
 
 .advance .tile {
-  width: 28px;
-  height: 28px;  
+  width: 26px;
+  height: 26px;  
 }
 
 .nightmare .tile {
-  width: 25px;
-  height: 25px;
+  width: 23px;
+  height: 23px;
 }
 .closedTile {
   background-color: #d3d3d3;
@@ -76,7 +79,7 @@
 }
 .headerTitle {
   margin-left: 2%;
-  font-size: 52px;
+  font-size: 42px;
   color: #FFF;
   text-shadow: 0 1px 0 #ccc,
                0 2px 0 #c9c9c9,
@@ -168,15 +171,23 @@ table, th, td {
   justify-content: center;
   align-items: center;
   margin-top: 1%;
+  /*position: absolute;
+  height: 86%*/
 }
 
 .gameControls {
   display: flex;
-  flex-direction: row;
   background-color: #808080;
   border: inset black;
-  padding: 1%;
+  padding: 2%;
 }
+
+.beginner .gameControls, .intermediate .gameControls, .advance .gameControls, .nightmare .gameControls{
+  flex-direction: row;
+}
+/*.advance .gameControls, .nightmare .gameControls {
+  flex-direction: column;
+}*/
 .numbers {
   font-size: 20px;
   font-weight: bold;
@@ -191,22 +202,31 @@ table, th, td {
 .toolbar {
   display: flex;
   justify-content: space-between;
-  flex-direction: column;
-  border-style: inset;
-  margin-bottom: 10px;
-  padding: 15px;
-  margin: 10px;
-  background-color: #e5e2e2
+  /*flex-direction: column;*/
+  /*border-style: inset;*/
+  /*margin-bottom: 10px;*/
+  padding: 15px 0px 15px 15px;
+  margin: 10px 0px 10px 10px;
+  /*background-color: #e5e2e2*/
 
 }
 
+.beginner .toolbar, .intermediate .toolbar, .advance .toolbar, .nightmare .toolbar {
+  flex-direction: column;  
+}
+
+/*.advance .toolbar, .nightmare .toolbar {
+  flex-direction: row;
+  padding-top: 0px;
+  margin-top: 0px;
+}*/
 .msrow {
   display: flex;
 }
 
 .level {
-  align-self: flex-start;
-  font-size: 20px;
+  align-self: center;
+  font-size: 15px;
   font-weight: bold;
   border-radius: 5px;
   background-color: #808080;
@@ -217,11 +237,11 @@ table, th, td {
 
 .timer {
   background-color: #808080;
-  padding: 5px;
+  padding: 3px;
   border-radius: 5px;
   border: 2px solid black;
   text-align: center;
-  user-select: none;
+  color: black;
 }
 
 .remainingMines {
@@ -231,13 +251,26 @@ table, th, td {
   border-radius: 5px;
   border: 2px solid black;
   justify-content: center;
+  align-items: center;
+}
+
+.unselectable {
   user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .remainingMines img {
-  width: 25px;
-  height: 25px;
-  transform: scaleX(-1);
+  width: 50px;
+  height: 50px;
+  /*transform: scaleX(-1);*/
+}
+
+.remainingMines div {
+  transform: scale(1, 1.5);
+  font-size: 40px;
+  color: black;
 }
 
 .restart {
@@ -248,10 +281,12 @@ table, th, td {
 }
 
 .gameStatus {
-  border-style: inset;
+  border: 2px solid black;
+  border-radius: 5px;
   text-align: center;
   padding: 5px;
   font-weight: bold;
+  margin-bottom: 5px;
 }
 .gameWon {
   color: #830000;
@@ -259,4 +294,13 @@ table, th, td {
 
 .gameLost {
   color: #830000;
+}
+
+.clock {
+  width: 40px;
+  height: 40px;
+}
+
+body {
+  margin: 0;
 }

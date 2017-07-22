@@ -12,14 +12,14 @@ export var Levels = {
   },
 
   advance: {
-    row: 25,
-    col: 25,
-    nMines: 100
+    row: 18,
+    col: 29,
+    nMines: 99
   },
 
   nightmare: {
-    row: 35,
-    col: 35,
-    nMines: 150
+    row: 23,
+    col: 45,
+    nMines: 200
   },
 }

@@ -20,7 +20,7 @@ export default class Tile extends React.Component {
   
   renderFlaggedTile() {
     return (
-      <div className="tile closedTile" onClick={this.handleClick} onContextMenu={this.handleClick}>
+      <div className="tile closedTile unselectable" onClick={this.handleClick} onContextMenu={this.handleClick}>
         <Flag />
       </div>
     )
@@ -28,21 +28,21 @@ export default class Tile extends React.Component {
 
   renderWronglyFlaggedTile() {
     return (
-      <div className="tile closedTile" onClick={this.handleClick} onContextMenu={this.handleClick}>
+      <div className="tile closedTile unselectable" onClick={this.handleClick} onContextMenu={this.handleClick}>
         <CrossedFlag />
       </div>
     )  
   }
   renderMineTile() {
     return (
-      <div className="tile closedTile" onClick={this.handleClick} onContextMenu={this.handleClick}>
+      <div className="tile closedTile unselectable" onClick={this.handleClick} onContextMenu={this.handleClick}>
         <Mine />
       </div>
     )
   }
   renderClosedTile() {
     return (
-      <div className="tile closedTile" onClick={this.handleClick} onContextMenu={this.handleClick}>
+      <div className="tile closedTile unselectable" onClick={this.handleClick} onContextMenu={this.handleClick}>
         
       </div>
     )
@@ -50,14 +50,14 @@ export default class Tile extends React.Component {
 
   renderEmptyTile() {
     return (
-      <div className="tile empty" onClick={this.handleClick} onContextMenu={this.handleClick}>
+      <div className="tile empty unselectable" onClick={this.handleClick} onContextMenu={this.handleClick}>
         
       </div>
     )
   }
   renderNumberedTile() {
    return (
-      <div className="tile numberedTile" onClick={this.handleClick} onContextMenu={this.handleClick}>
+      <div className="tile numberedTile unselectable" onClick={this.handleClick} onContextMenu={this.handleClick}>
         {this.props.value}   
       </div>
     ) 
