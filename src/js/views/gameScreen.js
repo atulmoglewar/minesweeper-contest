@@ -17,21 +17,14 @@ export default class GameScreen extends React.Component {
       this.setState({ level: GameStore.getGameLevel()})
     });
   }
-  renderToolbarFirst() {
-    return <div className="gameControls"><MineSweeper /><Toolbar /></div>;
-    return <div className="gameControls"><Toolbar /><MineSweeper /></div>;
-  }
-  renderBoardFirst() {
-    return <div className="gameControls"><MineSweeper /><Toolbar /></div>;
-  }
-  renderScreen() {
-    return this.state.level === 'beginner' || this.state.level === 'intermediate'? 
-      this.renderBoardFirst() : this.renderToolbarFirst();
-  }
+  
   render() {
     return (
       <div className={"gameScreen " + this.state.level} >
-          {this.renderScreen()}
+          <div className="gameControls">
+            <MineSweeper />
+            <Toolbar />
+          </div>;
       </div>
     )
   }
