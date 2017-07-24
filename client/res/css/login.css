@@ -1,0 +1,25 @@
+.loginScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+.loginDialog {
+  width: 350px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #808080;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.loginMessage {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 20px;
+}

@@ -16,7 +16,7 @@ export default class Practice extends React.Component {
     Page.Routes.leaderboard, Page.Routes.help]
     return (
       <div>
-      <BG transparent="true"/>
+        <BG transparent="true"/>
         <Header links={props}/>
         <GameScreen />
       </div>
