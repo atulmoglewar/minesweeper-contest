@@ -6,12 +6,20 @@ export default class Header extends React.Component {
       <div className="header">
         <div className="headerTitle">The Minesweeper</div>
         <div className="headerPageLinks">
-          <a href="/" className="headerPageLink">Home </a>
-          <a href="/compete" className="headerPageLink">Compete</a>
-          <a href="/leaderboard" className="headerPageLink">Leaderboard</a>
-          <a href="/help" className="headerPageLink">Help</a>
+          {this.renderLinks(this.props.links)}
         </div>
       </div>
     )
+  }
+
+  renderLinks(links) {
+    // let links = props.links;
+    let linkElements = [];
+    for (let i = 0; i < links.length; i++) {
+      linkElements.push(
+        <a href={links[i].href} className="headerPageLink">{links[i].text}</a>
+      )
+    }
+    return linkElements;
   }
 }

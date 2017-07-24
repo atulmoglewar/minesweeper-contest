@@ -4,6 +4,7 @@ import BG from './bg.js'
 import GameScreen from './gameScreen';
 import * as MinesweeperActions from '../data/actions/minesweeperActions.js';
 import * as Config from '../data/config/level.js'
+import * as Page from '../data/config/routes.js'
 import Header from './header'
 
 export default class Practice extends React.Component {
@@ -11,10 +12,12 @@ export default class Practice extends React.Component {
     MinesweeperActions.levelChange("beginner", Config.Levels.beginner);
   }
   render() {
+    let props = [Page.Routes.home, Page.Routes.compete, 
+    Page.Routes.leaderboard, Page.Routes.help]
     return (
       <div>
       <BG transparent="true"/>
-        <Header />
+        <Header links={props}/>
         <GameScreen />
       </div>
     )
