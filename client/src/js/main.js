@@ -11,6 +11,7 @@ import Practice from './views/practice.js';
 import Compete from './views/compete.js';
 import Leaderboard from './views/leaderBoard.js';
 import Help from './views/help.js';
+import Login from './views/login.js';
 
 class App extends React.Component {
   render() {
@@ -22,6 +23,7 @@ class App extends React.Component {
           <Route path="/compete" component={Compete} />
           <Route path="/leaderboard/" component={Leaderboard} />
           <Route path="/help" component={Help} />
+          <Route path="/login" component={Login} />
         </div>
       </Router>
     )
