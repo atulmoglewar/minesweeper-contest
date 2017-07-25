@@ -12,6 +12,7 @@ import Compete from './views/compete.js';
 import Leaderboard from './views/leaderBoard.js';
 import Help from './views/help.js';
 import Login from './views/login.js';
+import GameStore from './data/store/gameStore';
 
 class App extends React.Component {
   render() {
@@ -20,7 +21,9 @@ class App extends React.Component {
         <div>
           <Route exact path="/" component={Home} />
           <Route path="/practice" component={Practice} />
-          <Route path="/compete" component={Compete} />
+          <Route path="/compete" render={() => (
+            GameStore.isUserLoggedIn() ? <Compete /> : <Login />
+          )}/>
           <Route path="/leaderboard/" component={Leaderboard} />
           <Route path="/help" component={Help} />
           <Route path="/login" component={Login} />
