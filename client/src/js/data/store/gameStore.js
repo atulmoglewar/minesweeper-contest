@@ -103,6 +103,10 @@ class GameStore extends EventEmitter {
   getGameStatus() {
     return this.gameEngine.getGameStatus();
   }
+  isPracticeSession() {
+    return (this.gameLevel === 'beginner' || 
+      this.gameLevel === 'intermediate');
+  }
 }
 
 const gameStore = new GameStore();

@@ -2,7 +2,7 @@ import React from 'react';
 import * as MinesweeperActions from '../data/actions/minesweeperActions.js';
 import * as Config from '../data/config/level.js'
 
-export default class PracticeLevel extends React.Component {
+export default class GameLevel extends React.Component {
 
   constructor() {
     super();
@@ -12,11 +12,21 @@ export default class PracticeLevel extends React.Component {
     let gameLevel = event.target.value
     MinesweeperActions.levelChange(gameLevel, Config.Levels[gameLevel]);
   }
+  renderOptions(options) {
+    let optionElements = [];
+    options.forEach( (option) => {
+      let elm = <option 
+                  value={option.value} 
+                  onChange={this.handleChange}>{option.displayText}
+                </option>
+      optionElements.push(elm);
+    });
+    return optionElements;
+  }
   render() {
     return (
       <select className="level" onChange={this.handleChange}>
-        <option value="beginner">Beginner</option>
-        <option value="intermediate">Intermediate</option>
+        {this.renderOptions(this.props.options)}
       </select>
     )
   }

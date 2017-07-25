@@ -1,7 +1,6 @@
 import React from 'react';
 import NumberDisplay from './numberDisplay.js';
 import Toolbar from './toolbar.js';
-import PracticeLevel from './practiceLevel'
 import MineSweeper from './mineSweeper.js'
 import GameStore from '../data/store/gameStore.js'
 
