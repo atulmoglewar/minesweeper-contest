@@ -1,3 +1,17 @@
 node_modules
 bundle.js
 bundle.js.map
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# mypy
+.mypy_cache/
+
+# Text backup files
+*.bak
+
+#Database
+*.sqlite3
