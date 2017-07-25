@@ -9,6 +9,7 @@ class GameStore extends EventEmitter {
     dispatcher.register(this.handleAction.bind(this));
     this.gameStarted = false;
     this.gameTime = 0;
+    this.userLoggedIn = false;
     this.incrementGameTime = this.incrementGameTime.bind(this);
   }
 
@@ -106,6 +107,9 @@ class GameStore extends EventEmitter {
   isPracticeSession() {
     return (this.gameLevel === 'beginner' || 
       this.gameLevel === 'intermediate');
+  }
+  isUserLoggedIn() {
+    return this.userLoggedIn;
   }
 }
 
