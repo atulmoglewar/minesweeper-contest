@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 export default class Header extends React.Component {
   render() {
     return (
@@ -17,7 +17,7 @@ export default class Header extends React.Component {
     let linkElements = [];
     for (let i = 0; i < links.length; i++) {
       linkElements.push(
-        <a href={links[i].href} className="headerPageLink">{links[i].text}</a>
+        <Link to={links[i].href} className="headerPageLink">{links[i].text}</Link>
       )
     }
     return linkElements;
