@@ -6,6 +6,7 @@ import * as MinesweeperActions from '../data/actions/minesweeperActions.js';
 import * as Config from '../data/config/level.js';
 import * as Page from '../data/config/routes.js';
 import Header from './header'
+import {Helmet} from "react-helmet";
 
 export default class Compete extends React.Component {
   componentWillMount() {
@@ -16,6 +17,9 @@ export default class Compete extends React.Component {
     Page.Routes.leaderboard, Page.Routes.help];
     return (
       <div>
+        <Helmet>
+          <title>MineSweeper Competition</title>
+        </Helmet>
         <BG transparent="true"/>
         <Header links={props}/>
         <GameScreen />

@@ -1,9 +1,14 @@
 import React from 'react';
-import BG from './bg.js'
+import BG from './bg.js';
+import {Helmet} from 'react-helmet';
+
 export default class Help extends React.Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>MineSweeper Competition - Help</title>
+        </Helmet>
         <BG transparent="true"/>
         <div>
           <ul>
