@@ -15,14 +15,12 @@ export default class MainMenu extends React.Component {
       <div className="mainMenu">
         <MainMenuHeader />
           <div className="mainMenuTitle">The Minesweeper </div>
-          <Router>
-            <div className="menuItemsContainer">
-              <a href="/practice"><MenuItem name="Practice" /></a>
-              <a href="/compete"><MenuItem name="Compete" /></a>
-              <a href="/leaderboard"><MenuItem name="Leaderboard" /></a>
-              <a href="/help"><MenuItem name="Help" /></a>
-            </div>
-          </Router>
+          <div className="menuItemsContainer">
+            <Link to="/practice"><MenuItem name="Practice" /></Link>
+            <Link to="/compete"><MenuItem name="Compete" /></Link>
+            <Link to="/leaderboard"><MenuItem name="Leaderboard" /></Link>
+            <Link to="/help"><MenuItem name="Help" /></Link>
+          </div>
       </div>  
     )
   }
