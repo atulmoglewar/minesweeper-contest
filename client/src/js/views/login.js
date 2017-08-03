@@ -5,16 +5,18 @@ import Header from './header'
 import LoginDialog from './loginDialog'
 
 export default class Login extends React.Component {
-  
+  constructor(props) {
+    super(props);
+  }
   render() {
-    let props = [Page.Routes.home, Page.Routes.practice, 
+    let routes = [Page.Routes.home, Page.Routes.practice, 
     Page.Routes.leaderboard, Page.Routes.help]
     return (
       <div>
         <BG transparent="true"/>
-        <Header links={props}/>
-        <div  className="loginScreen">
-          <LoginDialog />
+        <Header links={routes}/>
+        <div className="loginScreen">
+          <LoginDialog redirect="/compete"/>
         </div>
       </div>
     )
