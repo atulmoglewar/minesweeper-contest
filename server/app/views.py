@@ -6,6 +6,7 @@ from models import WinRecord
 from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
 from django.contrib.staticfiles.templatetags.staticfiles import static
+from django.conf import settings
 
 # Handles unkown paths and redirect it to the valid paths.
 def redirectUnknownPaths(request, path):
@@ -17,9 +18,18 @@ def redirectUnknownPaths(request, path):
 	return render(request, 'index.html',
 		context = {'user': request.user,})
 
+# This view function redirects request for google authentication.
+def googleLogin(request):
+	google_login_URL = settings.GOOGLE_LOGIN_URL
+	# Composing Google login url with redirect path which appears in
+	# current request i.e /google-login?redirect=/path
+	# Default redirect url is '/' home page 
+	redirectPath = request.GET.get('redirect') if request.GET.get('redirect') else  '/'
+	return redirect(google_login_URL + redirectPath)
+
 def home(request):
 	return render(request, 'index.html',
-                 context = {'user': request.user,})
+		context = {'user': request.user,})
 
 @login_required(login_url='/login/google-oauth2/')
 def userInfo(request):

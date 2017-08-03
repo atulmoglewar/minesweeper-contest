@@ -140,6 +140,8 @@ STATICFILES_DIRS = (
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+GOOGLE_LOGIN_URL = '/login/google-oauth2/?next='
+
 LOGIN_REDIRECT_URL = '/compete'
 LOGIN_ERROR_URL = '/login-error/'
 
