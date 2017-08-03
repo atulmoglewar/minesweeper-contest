@@ -5,14 +5,15 @@ import Home from './views/home.js';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Redirect
 } from 'react-router-dom';
 import Practice from './views/practice.js';
 import Compete from './views/compete.js';
 import Leaderboard from './views/leaderBoard.js';
 import Help from './views/help.js';
 import Login from './views/login.js';
-import GameStore from './data/store/gameStore';
+import UserStore from './data/store/userStore';
 
 class App extends React.Component {
 
@@ -23,7 +24,7 @@ class App extends React.Component {
           <Route exact path="/" component={Home} />
           <Route path="/practice" component={Practice} />
           <Route path="/compete" render={() => (
-            GameStore.isUserLoggedIn() ? <Compete /> : <Login />
+            UserStore.isUserLoggedIn() ? <Compete /> : <Redirect to="/login"/>
           )}/>
           <Route path="/leaderboard/" component={Leaderboard} />
           <Route path="/help" component={Help} />
