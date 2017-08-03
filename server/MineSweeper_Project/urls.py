@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^users/$', views.userInfo, name='users'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('social_django.urls', namespace='social')),
+    url(r'^(?P<path>.*)$', views.redirectUnknownPaths, name='redirectUnknownPaths'),
 ]

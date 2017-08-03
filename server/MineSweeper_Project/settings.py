@@ -53,11 +53,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'MineSweeper_Project.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, '../build/'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,7 +132,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = ''
+# We do this so that django's collectstatic copies or our bundles to
+# the STATIC_ROOT or syncs them to whatever storage we use.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, '../build'), 
+)
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+LOGIN_REDIRECT_URL = '/compete'
 LOGIN_ERROR_URL = '/login-error/'
 
 # Fetching the client ID and secret Key required for Open Authentication.
