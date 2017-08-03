@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #e3e3e3;
 }
 .board {
   border-top: 1px solid white;
@@ -34,26 +35,20 @@
 }
 .openedTile {
   border-width: 1px;
-  background-color: #e3e3e3;
   border-style: inset;
 }
 .empty {
   border-width: 1px;
-  background-color: #e3e3e3;
   border-style: inset;
 }
 .numberedTile {
   font-size: 17px;  
   border-width: 1px;
-  background-color: #e3e3e3;
   border-style: inset;
 }
 .flag {
   width: 18px;
   height: 18px; 
-}
-#root table {
-  border-spacing: 0px;
 }
 
 .header {
@@ -160,11 +155,6 @@
   -webkit-font-smoothing: antialiased;
 }
 
-table, th, td {
-    border: 2px solid white;
-    border-collapse: collapse;
-}
-
 .gameScreen {
   width: 100%;
   display: flex;
@@ -178,14 +168,9 @@ table, th, td {
   background-color: #808080;
   border: inset black;
   padding: 2%;
-}
-
-.beginner .gameControls, .intermediate .gameControls, .advance .gameControls, .nightmare .gameControls{
   flex-direction: row;
 }
-/*.advance .gameControls, .nightmare .gameControls {
-  flex-direction: column;
-}*/
+
 .numbers {
   font-size: 20px;
   font-weight: bold;
@@ -200,24 +185,11 @@ table, th, td {
 .toolbar {
   display: flex;
   justify-content: space-between;
-  /*flex-direction: column;*/
-  /*border-style: inset;*/
-  /*margin-bottom: 10px;*/
+  flex-direction: column;
   padding: 15px 0px 15px 15px;
   margin: 10px 0px 10px 10px;
-  /*background-color: #e5e2e2*/
-
 }
 
-.beginner .toolbar, .intermediate .toolbar, .advance .toolbar, .nightmare .toolbar {
-  flex-direction: column;  
-}
-
-/*.advance .toolbar, .nightmare .toolbar {
-  flex-direction: row;
-  padding-top: 0px;
-  margin-top: 0px;
-}*/
 .msrow {
   display: flex;
 }
