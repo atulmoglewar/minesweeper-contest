@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^users/$', views.userInfo, name='users'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^google-login$', views.googleLogin, name='my_login'),
     url(r'', include('social_django.urls', namespace='social')),
     url(r'^(?P<path>.*)$', views.redirectUnknownPaths, name='redirectUnknownPaths'),
 ]
