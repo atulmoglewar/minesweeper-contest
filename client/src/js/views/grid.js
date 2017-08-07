@@ -13,7 +13,7 @@ export default class Grid extends React.Component {
       for (let j = 0; j < this.props.cols; j++) {
         let gameTile = this.props.board[i][j];
         tds.push(
-          <div>
+          <div key={"tile-" + i + j}>
             <Tile value = {gameTile.value}
                   handleRightClick = {this.props.handleRightClick}
                   handleLeftClick = {this.props.handleLeftClick}
@@ -25,7 +25,7 @@ export default class Grid extends React.Component {
             />
           </div>)
       }
-      trs.push(<div className="msrow">{tds}</div>);
+      trs.push(<div key={"row-" + i} className="msrow">{tds}</div>);
     }
     return trs;  
   }

@@ -16,6 +16,7 @@ export default class GameLevel extends React.Component {
     let optionElements = [];
     options.forEach( (option) => {
       let elm = <option 
+                  key={"gl-" + option.displayText}
                   value={option.value} 
                   onChange={this.handleChange}>{option.displayText}
                 </option>
