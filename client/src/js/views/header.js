@@ -17,7 +17,11 @@ export default class Header extends React.Component {
     let linkElements = [];
     for (let i = 0; i < links.length; i++) {
       linkElements.push(
-        <Link to={links[i].href} className="headerPageLink">{links[i].text}</Link>
+        <Link 
+          key={"header-" + links[i].text}
+          to={links[i].href} 
+          className="headerPageLink">{links[i].text}
+        </Link>
       )
     }
     return linkElements;
