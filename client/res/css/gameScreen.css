@@ -1,0 +1,38 @@
+.unselectable {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.gameStatus {
+  border: 2px solid black;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.gameWon {
+  color: #830000;
+}
+
+.gameLost {
+  color: #830000;
+}
+
+.gameScreen {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1%;
+}
+
+.gameControls {
+  display: flex;
+  background-color: #808080;
+  border: inset black;
+  padding: 2%;
+  flex-direction: row;
+}
